@@ -1,68 +1,261 @@
-function App(props) {
+(62 sloc)  1.28 KB
+[
+  {
+   "id": 1,
+    "title": "Avatar",
+    "distributor": "20th Century Fox",
+    "year": 2009,
+    "amount": "$2,787,965,087",
+    "img": {
+      "src": "media/avatar.jpg",
+      "alt": "avatar"
+    },
+    "ranking": 1
+  },
+  {
+    "id": 2,
+    "title": "Titanic",
+    "distributor": "20th Century Fox",
+    "year": 1997,
+    "amount": "$2,187,463,944",
+    "img": {
+      "src": "media/titanic.jpg",
+      "alt": "titanic"
+    },
+    "ranking": 2
+  },
+  {
+    "id": 3,
+    "title": "Star Wars: The Force Awakens",
+    "distributor": "Walt Disney Studios Motion Pictures",
+    "year": 2015,
+    "amount": "$2,068,223,624",
+    "img": {
+      "src": "media/star_wars_the_force_awakens.jpg",
+      "alt": "star_wars_the_force_awakens"
+    },
+    "ranking": 3
+  },
+  {
+    "id": 4,
+    "title": "Avengers: Infinity War",
+    "distributor": "Walt Disney Studios Motion Pictures",
+    "year": 2018,
+    "amount": "$2,048,359,754",
+    "img": {
+      "src": "media/avengers_infinity_war.jpg",
+      "alt": "avengers_infinity_war"
+    },
+    "ranking": 4
+  },
+  {
+    "id": 5,
+    "title": "Jurassic World",
+    "distributor": "Universal Pictures",
+    "year": 2015,
+    "amount": "$1,671,713,208",
+    "img": {
+      "src": "media/jurassic_world.jpg",
+      "alt": "jurassic_world"
+    },
+    "ranking": 5
+  }
+]
+ {
+  "name": "ecommerce-store-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "apollo-server": "2.9.5",
+    "apollo-server-express": "2.9.5",
+    "bcryptjs": "2.4.3",
+    "express": "4.17.1",
+    "faker": "4.1.0",
+    "graphql": "14.5.8",
+    "http": "0.0.0",
+    "jsonwebtoken": "8.5.1",
+    "nodemon": "1.19.1"
+  },
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
+ import React from 'react';
+import PropTypes from 'prop-types';
+
+const Card = ({ movie }) => {
   return (
-      <div className="todoapp stack-large">
-            <h1>TodoMatic</h1>
-                  <form>
-                          <h2 className="label-wrapper">
-                                    <label htmlFor="new-todo-input" className="label__lg">
-                                                What needs to be done?
-                                                          </label>
-                                                                  </h2>
-                                                                          <input
-                                                                                    type="text"
-                                                                                              id="new-todo-input"
-                                                                                                        className="input input__lg"
-                                                                                                                  name="text"
-                                                                                                                            autoComplete="off"
-                                                                                                                                    />
-                                                                                                                                            <button type="submit" className="btn btn__primary btn__lg">
-                                                                                                                                                      Add
-                                                                                                                                                              </button>
-                                                                                                                                                                    </form>
-                                                                                                                                                                          <div className="filters btn-group stack-exception">
-                                                                                                                                                                                  <button type="button" className="btn toggle-btn" aria-pressed="true">
-                                                                                                                                                                                            <span className="visually-hidden">Show </span>
-                                                                                                                                                                                                      <span>all</span>
-                                                                                                                                                                                                                <span className="visually-hidden"> tasks</span>
-                                                                                                                                                                                                                        </button>
-                                                                                                                                                                                                                                <button type="button" className="btn toggle-btn" aria-pressed="false">
-                                                                                                                                                                                                                                          <span className="visually-hidden">Show </span>
-                                                                                                                                                                                                                                                    <span>Active</span>
-                                                                                                                                                                                                                                                              <span className="visually-hidden"> tasks</span>
-                                                                                                                                                                                                                                                                      </button>
-                                                                                                                                                                                                                                                                              <button type="button" className="btn toggle-btn" aria-pressed="false">
-                                                                                                                                                                                                                                                                                        <span className="visually-hidden">Show </span>
-                                                                                                                                                                                                                                                                                                  <span>Completed</span>
-                                                                                                                                                                                                                                                                                                            <span className="visually-hidden"> tasks</span>
-                                                                                                                                                                                                                                                                                                                    </button>
-                                                                                                                                                                                                                                                                                                                          </div>
-                                                                                                                                                                                                                                                                                                                                <h2 id="list-heading">
-                                                                                                                                                                                                                                                                                                                                        3 tasks remaining
-                                                                                                                                                                                                                                                                                                                                              </h2>
-                                                                                                                                                                                                                                                                                                                                                    <ul
-                                                                                                                                                                                                                                                                                                                                                            role="list"
-                                                                                                                                                                                                                                                                                                                                                                    className="todo-list stack-large stack-exception"
-                                                                                                                                                                                                                                                                                                                                                                            aria-labelledby="list-heading"
-                                                                                                                                                                                                                                                                                                                                                                                  >
-                                                                                                                                                                                                                                                                                                                                                                                          <li className="todo stack-small">
-                                                                                                                                                                                                                                                                                                                                                                                                    <div className="c-cb">
-                                                                                                                                                                                                                                                                                                                                                                                                                <input id="todo-0" type="checkbox" defaultChecked={true} />
-                                                                                                                                                                                                                                                                                                                                                                                                                            <label className="todo-label" htmlFor="todo-0">
-                                                                                                                                                                                                                                                                                                                                                                                                                                          Eat
-                                                                                                                                                                                                                                                                                                                                                                                                                                                      </label>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <div className="btn-group">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <button type="button" className="btn">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Edit <span className="visually-hidden">Eat</span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </button>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <button type="button" className="btn btn__danger">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          Delete <span className="visually-hidden">Eat</span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </button>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <li className="todo stack-small">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <div className="c-cb">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <input id="todo-1" type="checkbox" />
+    <div className='card'>
+      <img src={movie.img.src} className='card-img-top' alt={movie.img.alt} />
+      <div className='card-body'>
+        <h2 className='card-title'>{`#${movie.ranking} - ${movie.title} (${movie.year})`}</h2>
+      </div>
+      <ul className='list-group list-group-flush'>
+        <li className='list-group-item'>{`Distributor: ${movie.distributor}`}</li>
+        <li className='list-group-item'>{`Amount: ${movie.amount}`}</li>
+      </ul>
+    </div>
+  );
+};
+
+Card.propTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string,
+    distributor: PropTypes.string,
+    year: PropTypes.number,
+    amount: PropTypes.string,
+    img: PropTypes.shape({
+      src: PropTypes.string,
+      alt: PropTypes.string,
+    }),
+    ranking: PropTypes.number,
+  }).isRequired,
+};
+
+export default Card;
+ import React from 'react';
+import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import List from './containers/List';
+
+const App = () => {
+  return (
+    <div className='container-fluid'>
+      <nav className='navbar sticky-top navbar-light bg-dark'>
+        <h1 className='navbar-brand text-light'>MovieList</h1>
+      </nav>
+
+      <List />
+    </div>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById('root'));
+ import React, { Component } from 'react';
+
+import Card from '../components/Card/Card';
+
+class List extends Component {
+  constructor() {
+    super();
+    this.state = {
+      data: [],
+      loading: true,
+    };
+  }
+
+  async componentDidMount() {
+    const movies = await fetch('../../assets/data.json');
+    const moviesJSON = await movies.json();
+
+    if (moviesJSON) {
+      this.setState({
+        data: moviesJSON,
+        loading: false,
+      });
+    }
+  }
+
+  render() {
+    const { data, loading } = this.state;
+
+    if (loading) {
+      return <div>Loading...</div>;
+    }
+
+    return (
+      <div className='row'>
+        {data.map(movie => (
+          <div key={movie.id} className='col-sm-2'>
+            <Card movie={movie} />
+          </div>
+        ))}
+      </div>
+    );
+  }
+}
+
+export default <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>movieList</title>
+  </head>
+  <body>
+    <section id="root"></section>
+  </body>
+</html>
+[7/15, 11:55 AM] Rajdeep Routh: const HtmlWebPackPlugin = require('html-webpack-plugin');
+
+const htmlPlugin = new HtmlWebPackPlugin({
+  template: './src/index.html',
+  filename: './index.html',
+});
+
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ['babel-loader', 'eslint-loader'],
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
+  plugins: [htmlPlugin
+[7/15, 11:55 AM] Rajdeep Routh: module.exports = {
+  env: {
+    browser: true,
+    es6: true,
+  },
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 2018,
+    sourceType: 'module',
+  },
+  plugins: ['react'],
+  extends: ['eslint:recommended', 'plugin:react/recommended'],
+};
+
+                            
+                                                                                                                                                                                                                                                                                                                                      
+                                                                                                                                                                                                                                                                                                                                     
+                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                       
+                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                               
+                                                                                                                                                                                                                                                                                                                                                                                       
+                                                                                                                                                                                                                                                                                                                                                                                                 
+                                                                                                                                                                                                                                                                                                                                                                                                             
+                                                                                                                                                                                                                                                                                                                                                                                                               
+                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   <
       
         
@@ -102,13 +295,13 @@ function App(props) {
                                                                                                                                                                                                                                                                                                                                    
                                                                                                                                                                                                                                                                                                                                          
                                                                                                                                                                                                                                                                                                                                                   
-                                                                                                                                                                                                                                                                                                                                                            role="list"
+                                                                                                                                                                                                                                                                                                                                                        
                                                                                                                                                                                                                         
-                                                                                                                                                                                                                                                                                                                                                           "list-heading"
-                                                                                                                                                                                                                                                                                                                                                         
-                                                                                                                                                                                                                                                                                                                                                                                          <li className=
-                                                                                                                                                                                                                                                                                                                                                                                                    <
-                                                                                                                                                                                                                                                                                                                                                                                                              
+                                                                                                                                                                                                                                                                                                                                                       
+                                                                                                                                                                                                                                                                                                                                                       
+                                                                                                                                                                                                                                                                                                                                                                                     
+                                                                                                                                                                                                                                                                                                                                                                                                   
+                                                                                                                                                                                                                                                                                                                                                                                                        
                                                                                                                                                                                                                                                                                                                                                                                                                   
                                                                                                                                                                                                                                                                                                                                                                                                                                          
                                                                                                                                                                                                                                                                                                                                                                                                                                                       </label>
